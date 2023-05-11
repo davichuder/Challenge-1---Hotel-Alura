@@ -7,12 +7,16 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JTextField;
 import java.awt.Color;
 
+import com.challenge.controller.HuespedController;
 import com.challenge.controller.ReservaController;
+import com.challenge.entity.Huesped;
 import com.challenge.entity.Reserva;
 import com.toedter.calendar.JDateChooser;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
 import javax.swing.ImageIcon;
 import java.awt.SystemColor;
@@ -20,6 +24,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
 import java.text.Format;
+import java.util.regex.Pattern;
 import java.awt.Toolkit;
 import javax.swing.SwingConstants;
 import javax.swing.JSeparator;
@@ -273,6 +278,18 @@ public class RegistroHuesped extends JFrame {
 		btnguardar.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				Pattern pattern = Pattern.compile("\\d+");
+				if (txtNombre.getText().equals("") ||
+						txtApellido.getText().equals("") ||
+						txtFechaN.getDate() == null ||
+						!pattern.matcher(txtTelefono.getText()).matches()) {
+					JOptionPane.showMessageDialog(null, "Debes llenar todos los campos.");
+				} else {
+					guardarHuesped();
+					MenuUsuario menuUsuario = new MenuUsuario();
+					menuUsuario.setVisible(true);
+					dispose();
+				}
 			}
 		});
 		btnguardar.setLayout(null);
@@ -350,8 +367,21 @@ public class RegistroHuesped extends JFrame {
 		this.setLocation(x - xMouse, y - yMouse);
 	}
 
-	public void cargarReserva(Reserva reserva){
+	public void cargarReserva(Reserva reserva) {
 		this.reserva = reserva;
 		RegistroHuesped.txtNreserva.setText(reserva.getId().toString());
+	}
+
+	private void guardarHuesped() {
+		Huesped huesped = new Huesped();
+		huesped.setNombre(txtNombre.getText());
+		huesped.setApellido(txtApellido.getText());
+		huesped.setFechaDeNacimiento(txtFechaN.getDate());
+		huesped.setNacionalidad(txtNacionalidad.getSelectedItem().toString());
+		huesped.setTelefono(Integer.parseInt(txtTelefono.getText()));
+		huesped.setReserva(reserva);
+
+		HuespedController huespedController = new HuespedController();
+		huespedController.save(huesped);
 	}
 }
