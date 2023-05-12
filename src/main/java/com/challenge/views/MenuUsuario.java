@@ -25,6 +25,7 @@ public class MenuUsuario extends JFrame {
 	int xMouse, yMouse;
 	private JLabel labelExit;
 	private JLabel labelRegistro;
+	private JLabel labelCerrarSesion;
 
 	/**
 	 * Launch the application.
@@ -240,7 +241,7 @@ public class MenuUsuario extends JFrame {
 		lblNewLabel_3_2.setBounds(312, 520, 295, 27);
 		contentPane.add(lblNewLabel_3_2);
 
-		// Boton propio
+		// Boton propio de modificar valor
 		final JPanel btnModificarValor = new JPanel();
 		btnModificarValor.addMouseListener(new MouseAdapter() {
 			@Override
@@ -272,6 +273,39 @@ public class MenuUsuario extends JFrame {
 		labelModificarValor.setFont(new Font("Roboto", Font.PLAIN, 18));
 		labelModificarValor.setHorizontalAlignment(SwingConstants.LEFT);
 		btnModificarValor.add(labelModificarValor);
+
+		// Boton propio de cerrar sesion
+		final JPanel btnCerrarSesion = new JPanel();
+		btnCerrarSesion.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				MenuPrincipal principal = new MenuPrincipal();
+				principal.setVisible(true);
+				dispose();
+			}
+
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				btnCerrarSesion.setBackground(Color.GRAY);
+				labelCerrarSesion.setForeground(Color.WHITE);
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+				btnCerrarSesion.setBackground(Color.LIGHT_GRAY);
+				labelCerrarSesion.setForeground(Color.BLACK);
+			}
+		});
+		btnCerrarSesion.setLayout(null);
+		btnCerrarSesion.setBackground(Color.LIGHT_GRAY);
+		btnCerrarSesion.setBounds(0, 0, 257, 36);
+		panelMenu.add(btnCerrarSesion);
+
+		labelCerrarSesion = new JLabel("Cerrar Sesion");
+		labelCerrarSesion.setBounds(0, 0, 257, 36);
+		btnCerrarSesion.add(labelCerrarSesion);
+		labelCerrarSesion.setHorizontalAlignment(SwingConstants.CENTER);
+		labelCerrarSesion.setFont(new Font("Roboto", Font.PLAIN, 16));
 	}
 
 	private void headerMousePressed(java.awt.event.MouseEvent evt) {

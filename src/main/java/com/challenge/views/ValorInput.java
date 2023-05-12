@@ -19,9 +19,6 @@ import java.awt.Font;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
 import java.awt.Toolkit;
 import javax.swing.JSeparator;
 import javax.swing.SwingConstants;
@@ -33,6 +30,7 @@ public class ValorInput extends JFrame {
     int xMouse, yMouse;
     private JLabel labelExit;
     private JLabel labelAtras;
+    private VariableController variableController = new VariableController();
 
     /**
      * Launch the application.
@@ -234,6 +232,9 @@ public class ValorInput extends JFrame {
         panel.add(btnsiguiente);
         btnsiguiente.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
+        if (variableController.existsById("valor")) {
+            txtValor.setText(variableController.findById("valor").getValorNumerico().toString());
+        }
     }
 
     private void guardarValor() {
@@ -243,8 +244,6 @@ public class ValorInput extends JFrame {
         } catch (Exception e) {
             valor = 0f;
         }
-
-        VariableController variableController = new VariableController();
 
         Variable variable = new Variable();
         variable.setNombre("valor");
