@@ -242,7 +242,8 @@ public class ValorInput extends JFrame {
         try {
             valor = Float.parseFloat(txtValor.getText());
         } catch (Exception e) {
-            valor = 0f;
+            JOptionPane.showMessageDialog(null, "No se puedo guardad, ingrese un numero.");
+            return;
         }
 
         Variable variable = new Variable();
@@ -254,6 +255,7 @@ public class ValorInput extends JFrame {
         } else {
             variableController.save(variable);
         }
+        JOptionPane.showMessageDialog(null, "Se guardo el nuevo valor correctamente.");
     }
 
     // Código que permite mover la ventana por la pantalla según la posición de "x"

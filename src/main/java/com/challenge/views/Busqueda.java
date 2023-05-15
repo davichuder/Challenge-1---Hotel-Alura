@@ -15,9 +15,7 @@ import com.challenge.entity.Reserva;
 
 import javax.swing.JTable;
 import javax.swing.JTextField;
-import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
-import javax.swing.JComboBox;
 
 import java.awt.Color;
 import javax.swing.JLabel;
@@ -39,7 +37,6 @@ import java.awt.event.MouseMotionAdapter;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
-import java.util.Optional;
 
 @SuppressWarnings("serial")
 public class Busqueda extends JFrame {
@@ -452,7 +449,7 @@ public class Busqueda extends JFrame {
 
                 Float valor = null;
                 try {
-                    valor = new Float(modelo.getValueAt(tbReservas.getSelectedRow(), 3).toString());
+                    valor = Float.parseFloat(modelo.getValueAt(tbReservas.getSelectedRow(), 3).toString());
                 } catch (Exception e) {
                     JOptionPane.showMessageDialog(this, "El valor debe ser numerico");
                     return;
@@ -506,7 +503,7 @@ public class Busqueda extends JFrame {
 
                 String nacionalidad = modeloHuesped.getValueAt(tbHuespedes.getSelectedRow(), 4).toString();
                 try {
-                    telefono = new Integer(modeloHuesped.getValueAt(tbHuespedes.getSelectedRow(), 5).toString());
+                    telefono = Integer.parseInt(modeloHuesped.getValueAt(tbHuespedes.getSelectedRow(), 5).toString());
                 } catch (Exception e) {
                     JOptionPane.showMessageDialog(this, "El telefono debe ser numerico");
                     return;

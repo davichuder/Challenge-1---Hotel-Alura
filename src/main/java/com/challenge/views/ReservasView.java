@@ -330,6 +330,10 @@ public class ReservasView extends JFrame {
 									&& caledarioEntrada.get(Calendar.DAY_OF_YEAR) > caledarioSalida
 											.get(Calendar.DAY_OF_YEAR))) {
 						JOptionPane.showMessageDialog(null, "No se puede salir antes de la fecha de entrada.");
+					} else if ((caledarioEntrada.get(Calendar.YEAR) == Calendar.getInstance().get(Calendar.YEAR) &&
+								caledarioEntrada.get(Calendar.DAY_OF_YEAR) < Calendar.getInstance().get(Calendar.DAY_OF_YEAR)) ||
+								caledarioEntrada.get(Calendar.YEAR) < Calendar.getInstance().get(Calendar.YEAR)) {
+									JOptionPane.showMessageDialog(null, "No puede ingresar antes del dia de hoy.");				
 					} else {
 						guardarReserva();
 						RegistroHuesped registro = new RegistroHuesped();

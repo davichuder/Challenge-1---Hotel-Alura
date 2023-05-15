@@ -24,6 +24,8 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
 import java.text.Format;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.regex.Pattern;
 import java.awt.Toolkit;
 import javax.swing.SwingConstants;
@@ -160,7 +162,7 @@ public class RegistroHuesped extends JFrame {
 		txtNacionalidad.setBounds(560, 350, 289, 36);
 		txtNacionalidad.setBackground(SystemColor.text);
 		txtNacionalidad.setFont(new Font("Roboto", Font.PLAIN, 16));
-		txtNacionalidad.setModel(new DefaultComboBoxModel(new String[] { "afgano-afgana", "alemán-", "alemana",
+		txtNacionalidad.setModel(new DefaultComboBoxModel(new String[] { "afgano-afgana", "alemán-alemana",
 				"árabe-árabe", "argentino-argentina", "australiano-australiana", "belga-belga", "boliviano-boliviana",
 				"brasileño-brasileña", "camboyano-camboyana", "canadiense-canadiense", "chileno-chilena", "chino-china",
 				"colombiano-colombiana", "coreano-coreana", "costarricense-costarricense", "cubano-cubana",
@@ -279,13 +281,21 @@ public class RegistroHuesped extends JFrame {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				Pattern pattern = Pattern.compile("\\d+");
+				Calendar calendario = txtFechaN.getCalendar();
 				if (txtNombre.getText().equals("") ||
 						txtApellido.getText().equals("") ||
 						txtFechaN.getDate() == null ||
-						!pattern.matcher(txtTelefono.getText()).matches()) {
-					JOptionPane.showMessageDialog(null, "Debes llenar todos los campos.");
+						txtTelefono.getText().equals("")) {
+					JOptionPane.showMessageDialog(null, "Debes llenar todos los campos correctamente.");
+				} else if (!pattern.matcher(txtTelefono.getText()).matches()) {
+					JOptionPane.showMessageDialog(null, "El telefono debe ser un numero.");
+				} else if ((calendario.get(Calendar.YEAR) == Calendar.getInstance().get(Calendar.YEAR) &&
+						calendario.get(Calendar.DAY_OF_YEAR) < Calendar.getInstance().get(Calendar.DAY_OF_YEAR)) ||
+						calendario.get(Calendar.YEAR) < Calendar.getInstance().get(Calendar.YEAR)) {
+							JOptionPane.showMessageDialog(null, "Ingrese una fecha valida.");
 				} else {
 					guardarHuesped();
+					JOptionPane.showMessageDialog(null, "Se guardo la reserva y el huesped valor correctamente.");
 					MenuUsuario menuUsuario = new MenuUsuario();
 					menuUsuario.setVisible(true);
 					dispose();

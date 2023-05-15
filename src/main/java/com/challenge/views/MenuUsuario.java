@@ -4,6 +4,10 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import com.challenge.controller.VariableController;
+import com.challenge.entity.Variable;
+
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
 import java.awt.Color;
@@ -306,6 +310,14 @@ public class MenuUsuario extends JFrame {
 		btnCerrarSesion.add(labelCerrarSesion);
 		labelCerrarSesion.setHorizontalAlignment(SwingConstants.CENTER);
 		labelCerrarSesion.setFont(new Font("Roboto", Font.PLAIN, 16));
+
+		VariableController variableController = new VariableController();
+		if (!variableController.existsById("valor")){
+			Variable variable = new Variable();
+			variable.setNombre("valor");
+			variable.setValorNumerico(1000f);
+			variableController.save(variable);
+		}
 	}
 
 	private void headerMousePressed(java.awt.event.MouseEvent evt) {
