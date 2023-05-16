@@ -1,7 +1,5 @@
 package com.challenge.dao;
 
-import java.util.Optional;
-
 import javax.persistence.EntityManager;
 
 import com.challenge.entity.Variable;

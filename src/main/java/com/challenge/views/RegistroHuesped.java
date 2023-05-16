@@ -290,8 +290,7 @@ public class RegistroHuesped extends JFrame {
 				} else if (!pattern.matcher(txtTelefono.getText()).matches()) {
 					JOptionPane.showMessageDialog(null, "El telefono debe ser un numero.");
 				} else if ((calendario.get(Calendar.YEAR) == Calendar.getInstance().get(Calendar.YEAR) &&
-						calendario.get(Calendar.DAY_OF_YEAR) < Calendar.getInstance().get(Calendar.DAY_OF_YEAR)) ||
-						calendario.get(Calendar.YEAR) < Calendar.getInstance().get(Calendar.YEAR)) {
+						calendario.get(Calendar.DAY_OF_YEAR) > Calendar.getInstance().get(Calendar.DAY_OF_YEAR))) {
 							JOptionPane.showMessageDialog(null, "Ingrese una fecha valida.");
 				} else {
 					guardarHuesped();
