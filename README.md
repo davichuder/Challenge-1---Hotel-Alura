@@ -28,11 +28,11 @@ Busqueda de reservas, y huespedes <br>
 Es usuario, y contraseña por defecto es: admin <br>
 Por defecto, el valor de la reserva es de $1000 <br>
 
-<img src="MD\img1.png" width="30%" height="30%" alt="Inicio">
-<img src="MD\img2.png" width="30%" height="30%" alt="Login">
-<img src="MD\img3.png" width="30%" height="30%" alt="Menu principal">
-<img src="MD\img4.png" width="30%" height="30%" alt="Modificar valor">
-<img src="MD\img5.png" width="30%" height="30%" alt="Carga reserva">
-<img src="MD\img6.png" width="30%" height="30%" alt="Carga huesped">
-<img src="MD\img7.png" width="30%" height="30%" alt="RUD de Reservas">
-<img src="MD\img8.png" width="30%" height="30%" alt="RUD de Huespedes">
+<img src="MD\1.png" width="30%" height="30%" alt="Inicio">
+<img src="MD\2.png" width="30%" height="30%" alt="Login">
+<img src="MD\3.png" width="30%" height="30%" alt="Menu principal">
+<img src="MD\4.png" width="30%" height="30%" alt="Modificar valor">
+<img src="MD\5.png" width="30%" height="30%" alt="Carga reserva">
+<img src="MD\6.png" width="30%" height="30%" alt="Carga huesped">
+<img src="MD\7.png" width="30%" height="30%" alt="RUD de Reservas">
+<img src="MD\8.png" width="30%" height="30%" alt="RUD de Huespedes">
