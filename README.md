@@ -1,4 +1,4 @@
-# Challenge-1---Hotel-Alura
+# Challenge-3---Hotel-Alura
 Challenge 3 de ONE Oracle Next Education de Alura Latam
 
 ## 🖥️ Tecnologías Utilizadas:
