@@ -19,11 +19,11 @@ Challenge 3 de ONE Oracle Next Education de Alura Latam
 3. Disfrute la app
 
 ## Funcionalidades
-Logueo
-Modificar el valor de las reservas
-CRUD de reservas, y huespedes
-Busqueda de reservas, y huespedes
+Logueo <br>
+Modificar el valor de las reservas <br>
+CRUD de reservas, y huespedes <br>
+Busqueda de reservas, y huespedes <br>
 
 ## Notas
-Es usuario, y contraseña por defecto es: admin
-Por defecto, el valor de la reserva es de $1000
+Es usuario, y contraseña por defecto es: admin <br>
+Por defecto, el valor de la reserva es de $1000 <br>
